@@ -24,4 +24,9 @@ export class Form {
       this.tasksForm.reset();
     }
   }
+
+  protected removeTask(id: string):void {
+    console.log(id)
+    this.formManager.removeTask(id)
+  }
 }

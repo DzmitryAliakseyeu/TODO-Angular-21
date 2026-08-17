@@ -17,7 +17,7 @@
         <span>{{ task.text }}</span>
         <div class="buttons-container">
             <button type="button" aria-label="Button to complete task item">Complete</button>
-            <button type="button" aria-label="Button to remove task item">Remove</button>
+            <button type="button" aria-label="Button to remove task item" (click)="removeTask(task.id)">Remove</button>
         </div>
        
       </li>
