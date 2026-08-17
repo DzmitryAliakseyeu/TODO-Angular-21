@@ -12,10 +12,14 @@
   </div>
 
   <ul>
-    @for(task of tasks(); let i = $index; track i){
-      <li id="{{i}}">
+    @for(task of tasks(); track task.id){
+      <li>
         <span>{{ task.text }}</span>
-        <button type="button">Remove</button>
+        <div class="buttons-container">
+            <button type="button" aria-label="Button to complete task item">Complete</button>
+            <button type="button" aria-label="Button to remove task item">Remove</button>
+        </div>
+       
       </li>
     }
   </ul>
