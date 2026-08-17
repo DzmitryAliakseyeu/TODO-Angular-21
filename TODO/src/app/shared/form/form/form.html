@@ -1,3 +1,5 @@
+
+
 <form [formGroup]="tasksForm">
   <div class="input-row">
     <input
@@ -8,4 +10,14 @@
     />
     <button type="button" (click)="addTask()">Add</button>
   </div>
+
+  <ul>
+    @for(task of tasks(); let i = $index; track i){
+      <li id="{{i}}">
+        <span>{{ task }}</span>
+        <button type="button">Remove</button>
+      </li>
+    }
+     
+  </ul>
 </form>

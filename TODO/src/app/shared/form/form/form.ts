@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { FormManager } from '../../../services/formManager/form-manager';
 import { inject } from '@angular/core';
@@ -11,6 +11,8 @@ import { inject } from '@angular/core';
 })
 export class Form {
   private formManager = inject(FormManager);
+
+  protected tasks = computed(() => this.formManager.tasksTodo());
   tasksForm = new FormGroup({
     task: new FormControl(''),
   });

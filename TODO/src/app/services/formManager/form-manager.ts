@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormManager {
-  tasksTodo: string[] = [];
+  tasksTodo = signal<string[] | null>(null);
 
   addTask(task: string): void {
     if(task){
-      this.tasksTodo.push(task);
+      this.tasksTodo.update((tasks: string[] | null) => [...(tasks || []), task]);
     }
   }
 }
