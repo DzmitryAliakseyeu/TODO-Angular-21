@@ -14,10 +14,9 @@
   <ul>
     @for(task of tasks(); let i = $index; track i){
       <li id="{{i}}">
-        <span>{{ task }}</span>
+        <span>{{ task.text }}</span>
         <button type="button">Remove</button>
       </li>
     }
-     
   </ul>
 </form>
