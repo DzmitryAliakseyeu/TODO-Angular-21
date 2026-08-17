@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { FormManager } from '../../../services/formManager/form-manager';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +10,16 @@ import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
   styleUrl: './form.scss',
 })
 export class Form {
+  private formManager = inject(FormManager);
   tasksForm = new FormGroup({
     task: new FormControl(''),
   });
+
+  protected addTask(): void {
+    const task = this.tasksForm.get('task')?.value;
+    if (task) {
+      this.formManager.addTask(task);
+      this.tasksForm.reset();
+    }
+  }
 }
