@@ -26,7 +26,6 @@ export class Form {
   }
 
   protected removeTask(id: string):void {
-    console.log(id)
     this.formManager.removeTask(id)
   }
 

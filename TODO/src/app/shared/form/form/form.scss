@@ -1,0 +1,190 @@
+// ── Design tokens ──────────────────────────────────────────────────────────
+$color-bg:            #f8fafc;
+$color-surface:       #ffffff;
+$color-surface-soft:  #f1f5f9;
+$color-border:        #e2e8f0;
+$color-text:          #0f172a;
+$color-text-muted:    #64748b;
+$color-primary:       #8b5cf6;
+$color-primary-end:   #6366f1;
+$color-success:       #059669;
+$color-success-soft:  rgba(16, 185, 129, 0.1);
+$color-danger:        #dc2626;
+$color-danger-soft:   rgba(239, 68, 68, 0.08);
+$radius-sm:           8px;
+$radius-md:           12px;
+$radius-lg:           20px;
+$shadow-card:         0 4px 24px rgba(15, 23, 42, 0.08);
+$transition:          0.2s ease;
+
+// ── Host ────────────────────────────────────────────────────────────────────
+:host {
+  display: block;
+  width: 100%;
+}
+
+// ── Form card ───────────────────────────────────────────────────────────────
+form {
+  max-width: 560px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-card;
+}
+
+// ── Input row ───────────────────────────────────────────────────────────────
+.input-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+
+  input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-md;
+    background: $color-bg;
+    color: $color-text;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color $transition, box-shadow $transition;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+    }
+  }
+
+  button {
+    padding: 0.75rem 1.4rem;
+    border: none;
+    border-radius: $radius-md;
+    background: linear-gradient(135deg, $color-primary, $color-primary-end);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+    transition: transform $transition, box-shadow $transition;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// ── Task list ───────────────────────────────────────────────────────────────
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-radius: $radius-md;
+  background: $color-surface-soft;
+  border: 1px solid $color-border;
+  transition: background $transition;
+
+  span {
+    flex: 1;
+    font-size: 0.95rem;
+    color: $color-text;
+  }
+
+  // completed task row
+  &.is-completed {
+    background: $color-surface;
+    border-color: transparent;
+    opacity: 0.5;
+
+    span {
+      text-decoration: line-through;
+      color: $color-text-muted;
+    }
+  }
+}
+
+// ── Button group inside task ─────────────────────────────────────────────────
+.buttons-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+// ── Shared action button base ────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform $transition, opacity $transition;
+
+  svg { display: block; }
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// ── Complete button ───────────────────────────────────────────────────────────
+button[aria-label*="complete"],
+button[aria-label*="Complete"] {
+  @extend .btn;
+  background: $color-success-soft;
+  color: $color-success;
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.2);
+}
+
+// ── Remove button ─────────────────────────────────────────────────────────────
+button[aria-label*="remove"],
+button[aria-label*="Remove"] {
+  @extend .btn;
+  background: $color-danger-soft;
+  color: $color-danger;
+  box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.15);
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 640px) {
+  form {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+
+  .input-row {
+    flex-direction: column;
+
+    button {
+      width: 100%;
+    }
+  }
+}
