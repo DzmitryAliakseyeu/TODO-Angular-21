@@ -2,6 +2,8 @@
 
 A minimal task management application built with **Angular 21** and **Angular Signals**.  
 Add tasks, mark them as complete, and remove them — all without a backend.
+Continuous deployment is handled by **Netlify**.  
+Deployed and hosted on **[Netlify](https://todo-angular-21.netlify.app)**.
 
 ## Features
 
@@ -40,6 +42,16 @@ src/app/
 ---
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
+
+## CI/CD
+
+Continuous deployment is handled by **Netlify**:
+
+- Every push to the `develop` branch triggers an automatic build and deploy
+- Build command: `npm run build`
+- Published directory: `dist/TODO/browser`
+- SPA routing is handled via a `_redirects` file (`/* → /index.html 200`)
+- Configuration lives in [`netlify.toml`](../netlify.toml) at the repository root
 
 ## Development server
 
