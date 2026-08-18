@@ -1,4 +1,43 @@
-# TODO
+# TODO App
+
+A minimal task management application built with **Angular 21** and **Angular Signals**.  
+Add tasks, mark them as complete, and remove them — all without a backend.
+
+## Features
+
+- Add new tasks via a reactive form input
+- Mark tasks as complete (visually separated with strikethrough)
+- Remove individual tasks
+- Signal-based state management — no NgRx or external store
+- Modern SCSS styling with design tokens (variables for colors, radii, spacing)
+- Accessible buttons with `aria-label` and SVG icons
+- Responsive layout (stacked on mobile)
+
+## Tech stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Angular 21 (standalone components) |
+| State | Angular Signals (`signal`, `update`) |
+| Forms | Reactive Forms (`FormGroup`, `FormControl`) |
+| Styles | SCSS with design tokens |
+| Tests | Vitest |
+| Build | Angular CLI / `@angular/build` |
+
+## Project structure
+
+```
+src/app/
+├── pages/          # Routed page components
+├── services/
+│   └── formManager/  # FormManager service + Task model
+├── shared/
+│   └── form/         # Reusable form component
+├── app.routes.ts
+└── app.config.ts
+```
+
+---
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
 
