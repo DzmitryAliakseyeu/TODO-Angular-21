@@ -1,7 +1,7 @@
 [build]
   base    = "TODO"
   command = "npm run build"
-  publish = "TODO/dist/TODO/browser"
+  publish = "dist/TODO/browser"
 
 [[redirects]]
   from   = "/*"
