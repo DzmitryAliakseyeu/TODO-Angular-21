@@ -29,4 +29,8 @@ export class Form {
     console.log(id)
     this.formManager.removeTask(id)
   }
+
+  protected completeTask(id: string):void {
+    this.formManager.completeTask(id)
+  }
 }

@@ -13,14 +13,21 @@
 
   <ul>
     @for(task of tasks(); track task.id){
-      <li>
-        <span>{{ task.text }}</span>
-        <div class="buttons-container">
-            <button type="button" aria-label="Button to complete task item">Complete</button>
-            <button type="button" aria-label="Button to remove task item" (click)="removeTask(task.id)">Remove</button>
-        </div>
-       
-      </li>
+        @if(!task.completed){
+        <li>
+            <span>{{ task.text }}</span>
+            <div class="buttons-container">
+                <button type="button" aria-label="Button to complete task item" (click)="completeTask(task.id)">Complete</button>
+                <button type="button" aria-label="Button to remove task item" (click)="removeTask(task.id)">Remove</button>
+            </div>
+        </li>
+        } @else {
+            <li>    
+                <span>{{ task.text }}</span>
+                <button type="button" aria-label="Button to remove task item" (click)="removeTask(task.id)">Remove</button>
+            </li>
+            
+        }
     }
   </ul>
 </form>
