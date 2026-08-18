@@ -1,11 +1,11 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { FormManager } from '../../../services/formManager/form-manager';
-import { inject } from '@angular/core';
+import { FirstCapitalLetterPipe } from '../../../pipes/firstCapitalLetter/first-capital-letter-pipe';
 
 @Component({
   selector: 'app-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FirstCapitalLetterPipe],
   templateUrl: './form.html',
   styleUrl: './form.scss',
 })
