@@ -1,9 +1,6 @@
 [build]
-  base: "/opt/build/repo/TODO"
-  command: "ng build"
-  commandOrigin: "config"
-  publish: "/opt/build/repo/TODO/dist/TODO"
-  publishOrigin: "config"
+  command = "ng build"
+  publish = "dist/TODO/browser"
 
 [[redirects]]
   from = "/*"
