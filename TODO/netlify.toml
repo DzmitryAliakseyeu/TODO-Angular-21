@@ -1,8 +1,1 @@
-[build]
-  command = "npm run build"
-  publish = "dist/TODO/browser"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Netlify config is at the repo root (../netlify.toml)
